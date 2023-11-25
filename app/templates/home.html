@@ -10,8 +10,18 @@
 
   <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form1.as_p }}
-      {{ form2.as_p }}
+      <div>
+        {{ form1.as_p }}
+      </div>
+      <div>
+        {{ form2.as_p }}
+      </div>
+      <div>
+        {{ form3.as_p }}
+      </div>
+      <div>
+        {{ form4.as_p }}
+      </div>
       <button type="submit">Upload</button>
   </form>
 
