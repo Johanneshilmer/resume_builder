@@ -6,12 +6,15 @@ class Resume(models.Model):
   email = models.EmailField()
   image = models.ImageField(upload_to="uploads/")
   header = models.CharField(max_length=255)
+  
+  def __str__(self):
+      return self.name
 
 class Education(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
     degree = models.CharField(max_length=255)
     school = models.CharField(max_length=255)
-    graduation_year = models.IntegerField()
+    graduation_year = models.DateField(blank=True, null=True)
 
 class Experience(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)

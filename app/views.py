@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Resume, Education, Experience, Skill
 from .forms import ResumeForm, EducationForm, ExperienceForm, SkillForm
 
@@ -8,12 +8,19 @@ def create_resume(request):
     form2 = EducationForm(request.POST)
     form3 = ExperienceForm(request.POST)
     form4 = SkillForm(request.POST)
+    
     if form1.is_valid() and form2.is_valid() and form3.is_valid() and form4.is_valid():
-      form1.save()
+      resume_instance = form1.save()
+      # Set the resume foreign key for the Education form
+      form2.instance.resume = resume_instance
       form2.save()
+      form3.instance.resume = resume_instance
       form3.save()
+      form4.instance.resume = resume_instance
       form4.save()
-      return render(request, "resume.html")
+      
+      print("det funkar")
+      return redirect("resume", pk=form1.instance.id)
   else:
     form1 = ResumeForm()
     form2 = EducationForm()
@@ -28,11 +35,11 @@ def create_resume(request):
   }
   return render(request, "home.html", context=context)
 
-def resume(request):
-  data1 = Resume.objects.all()
-  data2 = Education.objects.all()
-  data3 = Experience.objects.all()
-  data4 = Skill.objects.all()
+def resume(request, pk):
+  data1 = Resume.objects.filter(id=pk)
+  data2 = Education.objects.filter(resume_id=pk)
+  data3 = Experience.objects.filter(resume_id=pk)
+  data4 = Skill.objects.filter(resume_id=pk)
   
   context = {
     "data1":data1,

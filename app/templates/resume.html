@@ -7,8 +7,12 @@
 </head>
 <body>
   <h1>Hello</h1>
-  {% for data in data %}
-    {{data}}
+  {% for data in data1 %}
+    {{data.name}}
+    {{data.phone}}
+  {% endfor %}
+  {% for data in data2 %}
+    {{data.school}}
   {% endfor %}
 </body>
 </html>

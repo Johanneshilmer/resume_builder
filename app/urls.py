@@ -3,5 +3,5 @@ from .views import create_resume, resume
 
 urlpatterns = [
     path('', create_resume),
-    path('resume/', resume)
+    path('resume/<int:pk>/', resume, name="resume")
 ]
