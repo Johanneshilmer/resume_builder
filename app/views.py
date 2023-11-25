@@ -9,6 +9,9 @@ def create_resume(request):
     form3 = ExperienceForm(request.POST)
     form4 = SkillForm(request.POST)
     
+    # Get the data of chosen Template.
+    template = request.POST.get('get_template', '')
+    
     if form1.is_valid() and form2.is_valid() and form3.is_valid() and form4.is_valid():
       resume_instance = form1.save()
       # Set the resume foreign key for the Education form
@@ -20,7 +23,7 @@ def create_resume(request):
       form4.save()
       
       print("det funkar")
-      return redirect("resume", pk=form1.instance.id)
+      return redirect(template, pk=form1.instance.id)
   else:
     form1 = ResumeForm()
     form2 = EducationForm()

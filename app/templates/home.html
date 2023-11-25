@@ -22,16 +22,21 @@
       <div>
         {{ form4.as_p }}
       </div>
+      <div class="form-group">
+      <label>Template</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="get_template" id="resume" value="resume">
+        <label class="form-check-label" for="resume">
+          Resume Template 1
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="get_template" id="resume1.html" value="resume1.html">
+        <label class="form-check-label" for="resume1.html">
+          Resume Template 2
+        </label>
+      </div>
       <button type="submit">Upload</button>
   </form>
-
-  <h3>Uploaded Images:</h3>
-  <ul>
-      {% for image in images %}
-          <li><img src="{{ image.image.url }}" alt="Uploaded Image"></li>
-      {% empty %}
-          <li>No images uploaded yet.</li>
-      {% endfor %}
-  </ul>
 </body>
 </html>
