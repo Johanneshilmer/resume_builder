@@ -3,7 +3,6 @@ from .models import Resume, Education, Experience, Skill
 from .forms import ResumeForm, EducationForm, ExperienceForm, SkillForm
 
 def create_resume(request):
-
   if request.method == "POST":
     form1 = ResumeForm(request.POST, request.FILES)
     form2 = EducationForm(request.POST)
@@ -30,5 +29,15 @@ def create_resume(request):
   return render(request, "home.html", context=context)
 
 def resume(request):
-  data = Resume.objects.all()
-  return render(request,"resume.html", {"data":data})
+  data1 = Resume.objects.all()
+  data2 = Education.objects.all()
+  data3 = Experience.objects.all()
+  data4 = Skill.objects.all()
+  
+  context = {
+    "data1":data1,
+    "data2":data2,
+    "data3":data3,
+    "data4":data4
+  }
+  return render(request,"resume.html", context=context)
