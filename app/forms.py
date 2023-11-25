@@ -3,8 +3,8 @@ from .models import *
 
 class ResumeForm(forms.ModelForm):
   class Meta:
-      model = Resume
-      fields = "__all__"
+    model = Resume
+    fields = "__all__"
 
 class EducationForm(forms.ModelForm):
   class Meta:
@@ -13,10 +13,10 @@ class EducationForm(forms.ModelForm):
     
 class ExperienceForm(forms.ModelForm):
   class Meta:
-    models = Experience
+    model = Experience
     fields = ["title", "company", "start_date", "end_date"]
 
 class SkillForm(forms.ModelForm):
   class Meta:
-    models = Skill
+    model = Skill
     fields = ["name", "proficiency"]
