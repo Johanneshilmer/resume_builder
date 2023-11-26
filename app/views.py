@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Resume, Education, Experience, Skill
 from .forms import ResumeForm, EducationForm, ExperienceForm, SkillForm
 
+def index(request):
+  return render(request,"index.html")
+
 def create_resume(request):
   if request.method == "POST":
     form1 = ResumeForm(request.POST, request.FILES)
@@ -38,7 +41,7 @@ def create_resume(request):
     "form3":form3,
     "form4":form4,
   }
-  return render(request, "home.html", context=context)
+  return render(request, "form.html", context=context)
 
 def resume(request, pk):
   # Retrieve the chosen template from the session

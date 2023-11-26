@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: Roboto, Arial;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
+  padding: 100px;
+}
+
+.content {
+  flex: 1fr;
+}
+
+.link-btn {
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 30px;
+}
+
+.link-btn:hover {
+  color: white;
+  background-color: black;
+}
