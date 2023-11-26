@@ -1,10 +1,19 @@
 from django import forms
 from .models import *
+from django.forms import TextInput
 
 class ResumeForm(forms.ModelForm):
   class Meta:
     model = Resume
     fields = "__all__"
+    # Styling for the forms
+    widgets = {
+      "name": TextInput(attrs={
+        'class': "form-control",
+        'style': 'max-width: 300px',
+        'placeholder': 'Name'
+      })
+    }
 
 class EducationForm(forms.ModelForm):
   class Meta:
