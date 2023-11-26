@@ -22,8 +22,10 @@ def create_resume(request):
       form4.instance.resume = resume_instance
       form4.save()
       
-      print("det funkar")
-      return redirect(template, pk=form1.instance.id)
+      # Store the template in the session
+      request.session['chosen_template'] = template
+      
+      return redirect("resume", pk=form1.instance.id)
   else:
     form1 = ResumeForm()
     form2 = EducationForm()
@@ -39,6 +41,9 @@ def create_resume(request):
   return render(request, "home.html", context=context)
 
 def resume(request, pk):
+  # Retrieve the chosen template from the session
+  chosen_template = request.session.get('chosen_template', '')
+  
   data1 = Resume.objects.filter(id=pk)
   data2 = Education.objects.filter(resume_id=pk)
   data3 = Experience.objects.filter(resume_id=pk)
@@ -48,6 +53,6 @@ def resume(request, pk):
     "data1":data1,
     "data2":data2,
     "data3":data3,
-    "data4":data4
+    "data4":data4,
   }
-  return render(request,"resume.html", context=context)
+  return render(request, chosen_template, context=context)

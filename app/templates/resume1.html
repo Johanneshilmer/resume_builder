@@ -6,13 +6,10 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Resume1</h1>
-    {{data1.name}}
-    {{data.phone}}
-    <img src="{{data.image.url}}" alt="">
-
-  {% for data in data2 %}
-    {{data.school}}
-  {% endfor %}
+  <h1>Resume2</h1>
+    {{data1.0.name}}
+    {{data1.0.phone}}
+    <img src="{{data1.0.image.url}}" alt="">
+    {{data2.0.school}}
 </body>
 </html>
