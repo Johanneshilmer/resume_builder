@@ -2,9 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Resume, Education, Experience, Skill
 from .forms import ResumeForm, EducationForm, ExperienceForm, SkillForm
 
-def test(request):
-  return render(request, "test.html")
-
 def index(request):
   return render(request,"index.html")
 

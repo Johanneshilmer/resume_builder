@@ -39,8 +39,8 @@ body {
   text-align: center;
 }
 
-.head {
-  display: block;
+form {
+  margin: 100px;
 }
 
 input[type=text], select {

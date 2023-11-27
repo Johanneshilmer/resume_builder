@@ -1,11 +1,7 @@
 {% extends "index.html" %}
 {% block content %}
 <div class="form_main">
-
-  <div class="head">
-    <h2>Create your Resume now</h2>
-  </div>
-
+  
   <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div>
