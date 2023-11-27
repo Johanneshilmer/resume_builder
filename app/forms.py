@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-from django.forms import TextInput
+from django.forms import TextInput, ClearableFileInput
 
 class ResumeForm(forms.ModelForm):
   class Meta:
@@ -8,12 +8,9 @@ class ResumeForm(forms.ModelForm):
     fields = "__all__"
     # Styling for the forms
     widgets = {
-      "name": TextInput(attrs={
-        'placeholder': 'Name'
-      }),
-      "email": TextInput(attrs={
-        'placeholder': "Email"
-      })
+        "name": forms.TextInput(attrs={'placeholder': 'Name'}),
+        "email": forms.TextInput(attrs={'placeholder': 'Email'}),
+        "image": forms.ClearableFileInput(attrs={'class': 'custom-file-input'}),
     }
 
 class EducationForm(forms.ModelForm):
