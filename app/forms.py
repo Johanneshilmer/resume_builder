@@ -9,7 +9,7 @@ class ResumeForm(forms.ModelForm):
     # Styling for the forms
     widgets = {
       "name": TextInput(attrs={
-        'style': 'max-width: 300px',
+        'style': 'max-width: 300px; width: 300px;', # Adding flera styles
         'placeholder': 'Name'
       }),
       "email": EmailInput(attrs={
