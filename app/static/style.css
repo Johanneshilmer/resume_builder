@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: Roboto, Arial;
 }
-
+/* Welcome Page */
 .main {
   display: flex;
   justify-content: center;
@@ -29,4 +29,26 @@ body {
 .link-btn:hover {
   color: white;
   background-color: black;
+}
+
+/* Form Page */
+
+.form_main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.head {
+  display: block;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }

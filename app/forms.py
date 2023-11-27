@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-from django.forms import TextInput,  EmailInput
+from django.forms import TextInput
 
 class ResumeForm(forms.ModelForm):
   class Meta:
@@ -9,12 +9,9 @@ class ResumeForm(forms.ModelForm):
     # Styling for the forms
     widgets = {
       "name": TextInput(attrs={
-        'style': 'max-width: 300px; width: 300px;', # Adding flera styles
         'placeholder': 'Name'
       }),
-      "email": EmailInput(attrs={
-        #'class': "form-control", Detta är bootstrap för att få i paragraf.
-        'style': "max-width: 300px",
+      "email": TextInput(attrs={
         'placeholder': "Email"
       })
     }
