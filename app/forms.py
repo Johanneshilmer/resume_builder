@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-from django.forms import TextInput
+from django.forms import TextInput,  EmailInput
 
 class ResumeForm(forms.ModelForm):
   class Meta:
@@ -9,9 +9,13 @@ class ResumeForm(forms.ModelForm):
     # Styling for the forms
     widgets = {
       "name": TextInput(attrs={
-        'class': "form-control",
         'style': 'max-width: 300px',
         'placeholder': 'Name'
+      }),
+      "email": EmailInput(attrs={
+        #'class': "form-control",
+        'style': "max-width: 300px",
+        'placeholder': "Email"
       })
     }
 
