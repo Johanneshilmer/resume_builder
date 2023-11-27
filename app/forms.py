@@ -13,7 +13,7 @@ class ResumeForm(forms.ModelForm):
         'placeholder': 'Name'
       }),
       "email": EmailInput(attrs={
-        #'class': "form-control",
+        #'class': "form-control", Detta är bootstrap för att få i paragraf.
         'style': "max-width: 300px",
         'placeholder': "Email"
       })
