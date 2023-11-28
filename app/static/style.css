@@ -33,45 +33,53 @@ body {
 
 /* Form Page */
 
+/* Form Main Container */
 .form_main {
   max-width: 600px;
   margin: 0 auto;
-}
-
-form {
-  background-color: #f8f9fa;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Section Container */
+.form_section {
+  margin-bottom: 40px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Form Input Styles */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* Form Button Styles */
+form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Template Selection Styles */
 .form-group {
-  margin-top: 15px;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .form-check {
   margin-bottom: 10px;
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.custom-file-input {
-  color: blue;
+/* Responsive Styles (adjust as needed) */
+@media (max-width: 768px) {
+  .form_main {
+    max-width: 100%;
+  }
 }

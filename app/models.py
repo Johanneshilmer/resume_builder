@@ -4,26 +4,25 @@ class Resume(models.Model):
   name = models.CharField(max_length=255)
   phone = models.CharField(max_length=15)
   email = models.EmailField()
-  image = models.ImageField(upload_to="uploads/")
-  header = models.CharField(max_length=255)
+  image = models.ImageField(upload_to="uploads/", blank=True, null=True)
+  title = models.CharField(max_length=255)
   
   def __str__(self):
       return self.name
 
 class Education(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    degree = models.CharField(max_length=255)
     school = models.CharField(max_length=255)
+    degree = models.CharField(max_length=255, blank=True, null=True)
     graduation_year = models.DateField(blank=True, null=True)
 
 class Experience(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
     company = models.CharField(max_length=255)
+    description = models.TextField()
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
 
 class Skill(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-    proficiency = models.CharField(max_length=50)
+    skills = models.CharField(max_length=255)

@@ -2,29 +2,83 @@
 {% block content %}
 <div class="form_main">
   
-  <form method="post" enctype="multipart/form-data">
+  <!-- Form 1 Section -->
+  <div class="form_section">
+    <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      <div>
-        {{ form1.as_p }}
-        {{ form2.as_p }}
-        {{ form3.as_p }}
-        {{ form4.as_p }}
-      </div>
+      {{ form1.as_p }}
+      <!-- Add any additional styling or structure for Form 1 here -->
+    </form>
+  </div>
+
+  <!-- Form 2 Section -->
+  <div class="form_section">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form2.as_p }}
+      <!-- Add any additional styling or structure for Form 2 here -->
+    </form>
+  </div>
+
+  <!-- Form 3 Section -->
+  <div class="form_section">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form3.as_p }}
+      <!-- Add any additional styling or structure for Form 3 here -->
+    </form>
+  </div>
+
+  <!-- Form 4 Section -->
+  <div class="form_section">
+    <form method="post" enctype="multipart/form-data">
+      <h3>Add your skills</h3>
+      {% csrf_token %}
+      {{ form4.as_p }}
+      <!-- Add any additional styling or structure for Form 4 here -->
+    </form>
+  </div>
+
+  <!-- Template Selection Section -->
+  <div class="form_section">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
       <div class="form-group">
-      <label>Template</label>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="get_template" id="resume.html" value="resume.html">
-        <label class="form-check-label" for="resume.html">
-          Resume Template 1
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="get_template" id="resume1.html" value="resume1.html">
-        <label class="form-check-label" for="resume1.html">
-          Resume Template 2
-        </label>
+        <label>Template</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="get_template" id="resume.html" value="resume.html">
+          <label class="form-check-label" for="resume.html">
+            Resume Template 1
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="get_template" id="resume1.html" value="resume1.html">
+          <label class="form-check-label" for="resume1.html">
+            Resume Template 2
+          </label>
+        </div>
       </div>
       <button type="submit">Upload</button>
-  </form>
+    </form>
+  </div>
+
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // Add more skills
+    $("#addSkill").click(function () {
+      var newSkill = '<input type="text" name="skills[]" placeholder="Enter a skill">';
+      $("#skillsContainer").append(newSkill);
+    });
+
+    // Add more companies
+    $("#addCompany").click(function () {
+      var newCompany = '<input type="text" name="companies[]" placeholder="Enter a company">';
+      $("#companiesContainer").append(newCompany);
+    });
+  });
+</script>
 {% endblock content %}

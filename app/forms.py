@@ -12,18 +12,21 @@ class ResumeForm(forms.ModelForm):
         "email": forms.TextInput(attrs={'placeholder': 'Email'}),
         "image": forms.ClearableFileInput(attrs={'class': 'custom-file-input'}),
     }
+    # To allow empty value.
+    
 
 class EducationForm(forms.ModelForm):
   class Meta:
     model = Education
-    fields = ["degree", "school", "graduation_year"]
+    fields = ["school", "degree", "graduation_year"]
     
 class ExperienceForm(forms.ModelForm):
   class Meta:
     model = Experience
-    fields = ["title", "company", "start_date", "end_date"]
+    fields = ["company", "description", "start_date", "end_date"]
+
 
 class SkillForm(forms.ModelForm):
   class Meta:
     model = Skill
-    fields = ["name", "proficiency"]
+    fields = ["skills"]
