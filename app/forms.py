@@ -6,13 +6,6 @@ class ResumeForm(forms.ModelForm):
   class Meta:
     model = Resume
     fields = "__all__"
-    # Styling for the forms
-    widgets = {
-        "name": forms.TextInput(attrs={'placeholder': 'Name'}),
-        "email": forms.TextInput(attrs={'placeholder': 'Email'}),
-        "image": forms.ClearableFileInput(attrs={'class': 'custom-file-input'}),
-    }
-    # To allow empty value.
     
 
 class EducationForm(forms.ModelForm):
