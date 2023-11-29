@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Resume, Education, Experience, Skill
 from .forms import ResumeForm, EducationForm, ExperienceForm, SkillForm
+from django.forms import inlineformset_factory
 
 def index(request):
   return render(request,"index.html")
@@ -11,6 +12,9 @@ def create_resume(request):
     form2 = EducationForm(request.POST)
     form3 = ExperienceForm(request.POST)
     form4 = SkillForm(request.POST)
+    
+    EducationFormSet = inlineformset_factory(Resume, Education, form=EducationForm, extra=1)
+    SkillFormSet = inlineformset_factory(Resume, Skill, form=SkillForm, extra=1)
     
     # Get the data of chosen Template.
     template = request.POST.get('get_template', '')
@@ -24,6 +28,15 @@ def create_resume(request):
       form3.save()
       form4.instance.resume = resume_instance
       form4.save()
+      
+      # Process formsets for Education and Skills
+      education_formset = EducationFormSet(request.POST, instance=resume_instance)
+      skill_formset = SkillFormSet(request.POST, instance=resume_instance)
+      if education_formset.is_valid():
+                education_formset.save()
+
+      if skill_formset.is_valid():
+          skill_formset.save()
       
       # Store the template in the session
       request.session['chosen_template'] = template

@@ -77,9 +77,35 @@ form button {
   margin-bottom: 10px;
 }
 
-/* Responsive Styles (adjust as needed) */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .form_main {
     max-width: 100%;
   }
+}
+
+
+.template-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.form-check {
+    display: inline-block;
+    position: relative;
+}
+
+.template-label img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.template-label.selected img {
+    border-color: black;
 }
