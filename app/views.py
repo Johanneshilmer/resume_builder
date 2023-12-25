@@ -8,7 +8,6 @@ def index(request):
 
 
 
-
 def create_resume(request):
   if request.method == "POST":
     form1 = ResumeForm(request.POST, request.FILES)
