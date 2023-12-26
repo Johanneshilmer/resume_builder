@@ -7,7 +7,6 @@ def index(request):
   return render(request,"index.html")
 
 
-
 def create_resume(request):
   if request.method == "POST":
     form1 = ResumeForm(request.POST, request.FILES)
@@ -57,8 +56,6 @@ def create_resume(request):
     "form4":form4,
   }
   return render(request, "form.html", context=context)
-
-
 
 
 def resume(request, pk):
