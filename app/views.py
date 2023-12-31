@@ -74,3 +74,5 @@ def resume(request, pk):
     "data4":data4,
   }
   return render(request, chosen_template, context=context)
+
+# Let's bring back the coding year! 
