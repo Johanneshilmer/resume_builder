@@ -13,6 +13,7 @@ class EducationForm(forms.ModelForm):
     model = Education
     fields = ["school", "degree", "graduation_year"]
     
+    
 class ExperienceForm(forms.ModelForm):
   class Meta:
     model = Experience
