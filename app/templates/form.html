@@ -67,18 +67,18 @@
 </div>
 </div>
 <script>
-  // Add event listeners to handle template selection
+  // Add event listeners to handle template selection.
   document.querySelectorAll('.template-label').forEach(function(label) {
       label.addEventListener('click', function(event) {
-          // Prevent the default behavior of the click event
+          // Prevent the default behavior of the click event.
           event.preventDefault();
 
-          // Deselect all template labels
+          // Deselect all template labels.
           document.querySelectorAll('.template-label').forEach(function(otherLabel) {
               otherLabel.classList.remove('selected');
           });
 
-          // Select the clicked label
+          // Select the clicked label.
           label.classList.add('selected');
 
           // Find the associated radio button
