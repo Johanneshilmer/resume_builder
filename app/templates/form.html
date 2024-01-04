@@ -40,6 +40,7 @@
       {% csrf_token %}
       {{ form4.as_p }}
       <!-- Add any additional styling or structure for Form 4 here -->
+      <button type="button" id="add-more">Add More Skills</button>
     </form>
   </div>
 
@@ -67,6 +68,7 @@
 </div>
 </div>
 <script>
+
   // Add event listeners to handle template selection.
   document.querySelectorAll('.template-label').forEach(function(label) {
       label.addEventListener('click', function(event) {
@@ -88,5 +90,17 @@
           radioButton.checked = true;
       });
   });
+
+  // Function where the user can add more forms to insert data
+      const addMoreButton = document.getElementById('add-more');
+      addMoreButton.addEventListener('click', function () {
+          const formset = document.getElementById('id_form-TOTAL_FORMS');
+          const currentForms = parseInt(formset.value);
+          formset.value = currentForms + 1;
+          const formContainer = document.getElementById('formset-container');
+          const newForm = document.createElement('div');
+          newForm.innerHTML = '{{ formset.empty_form|safe }}'.replace(/__prefix__/g, currentForms);
+          formContainer.appendChild(newForm.firstChild);
+      });
 </script>
 {% endblock content %}
