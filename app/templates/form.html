@@ -94,11 +94,11 @@
   // Function where the user can add more forms to insert data
   document.addEventListener('DOMContentLoaded', function () {
     const formContainer = document.querySelector('.form_section');
-    const resumeForm = formContainer.querySelector('.resume-form');
+    const resumeForm = formContainer.querySelector('.ResumeForm');
     const addMoreSkillsButton = resumeForm.querySelector('.add-more-skills');
 
     addMoreSkillsButton.addEventListener('click', function () {
-        const originalSkillsForm = resumeForm.querySelector('.skill-form');
+        const originalSkillsForm = resumeForm.querySelector('.SkillForm');
         const clonedSkillsForm = originalSkillsForm.cloneNode(true);
 
         // Clear input values in the cloned form
